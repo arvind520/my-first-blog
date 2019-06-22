@@ -1,19 +1,34 @@
+{% load static %}
 <html>
     <head>
-        <title>Railways Blog</title>
+        <title>Railways blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
     <body>
-        <div>
-            <h1><a href="/">Railways Blog</a></h1>
+        <div class="page-header">
+                <button onclick="window.location.href = 'http://arvindgta.pythonanywhere.com/admin/login/';"style="float: right;">Admin Login</button>
+                <h1><a href="/"><img src="https://qph.fs.quoracdn.net/main-qimg-15c07df2d3385d523bdc62a88050284d" alt="Railways Blog" WIDTH=100 HEIGHT=100 /> Railways Blog</a></h1>
         </div>
+
         
-        {% for post in posts %}
-            <div>
-                <p>published: {{ post.published_date }}</p>
-                <h2><a href="">{{ post.title }}</a></h2>
-                <p>{{ post.text|linebreaksbr }}</p>
-            </div>
-        {% endfor %}
         
+        <div class="content container">
+                <div class="row">
+                    <div class="col-md-8">
+                        {% for post in posts %}
+                            <div class="post">
+                                <p class="date">
+                                    <p>published: {{ post.published_date }}</p>
+                                </p>
+                                <h2><a href="">{{ post.title }}</a></h2>
+                                <p>{{ post.text|linebreaksbr }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+        </div>
     </body>
 </html>
