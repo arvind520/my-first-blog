@@ -1,0 +1,24 @@
+{% load static %}
+<html>
+    <head>
+        <title>Railways blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    </head>
+    <body>
+        <div class="page-header">
+                <a href='http://arvindgta.pythonanywhere.com/admin/login/' style="float: right;"><button>Admin Login</button></a>
+                <h1><img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Indian_Railway.svg/800px-Indian_Railway.svg.png" alt="Indian Railways Logo" style="width:130px;height:130px;"><a href="/"> Railways Blog</a></h1>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
